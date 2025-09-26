@@ -15,9 +15,9 @@
             <a href="#" class="logo">NAVNEET</a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="about.html" class="nav-link">About Me</a></li>
-                <li><a href="contact.html" class="nav-link">Projects</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="about.html" id="aboutLink" class="nav-link">About Me</a></li>
+                <li><a href="contact.html" id="contactLink" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" id="aboutlink" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -36,7 +36,7 @@
     <section id="home" class="hero-section">
         <div class="hero-content">
             <h1 class="hero-title">Hello, I'm Navneet, Developer</h1>
-            <div id="typewriter" class ="hero-subtitle"></div><span class="cursor"></span>
+            <div id="typewriter" class="hero-subtitle"></div><span class="cursor"></span>
             <p class="hero-description">
                 After 12 finally landed in AJAY KUMAR GARG ENGINEERING COLLEGE with lots of new hopes and unflied hopes
             </p>
@@ -66,6 +66,22 @@
         </div>
     </section>
     <script src="script.js"></script>
+    <script>
+        let currentscore = localStorage.getItem("currentscore")||0;
+
+        // Function to check before opening page
+        function allowPage(e) {
+            if (!currentscore || currentscore < 100) {
+                e.preventDefault(); // Stop link from opening
+                alert("⚠️ You need a score of at least 100 to open this page!");
+            }
+        }
+
+        document.getElementById("aboutLink").addEventListener("click", allowPage);
+        document.getElementById("contactLink").addEventListener("click", allowPage);
+        
+        document.getElementById("aboutlink").addEventListener("click", allowPage);
+    </script>
 </body>
 
 </html>

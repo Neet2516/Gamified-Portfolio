@@ -67,6 +67,7 @@ body {
 
 /* Section Styling */
 .section {
+    background: beige;
     padding: 60px 40px;
     border-bottom: 1px solid #eee;
     animation: fadeInUp 0.8s ease-out;
