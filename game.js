@@ -92,6 +92,10 @@ function checkAnswer() {
     updateScore();
 }
 
+var navneet = 12;
+
+
+
 function skipWord() {
     currentScore = Math.max(0, currentScore - 5);
     document.getElementById('feedback').textContent = "Word skipped! -5 points";
@@ -121,7 +125,7 @@ function updateScore() {
     document.getElementById('score').textContent = currentScore;
     updateProgressBar();
 
-    if (currentScore >= 50) {
+    if (currentScore >= 5) {
         showNextPage();
     }
 }
@@ -138,6 +142,7 @@ function updateProgressBar() {
 function showNextPage() {
     // Simulate redirect after 3 seconds (you can change this URL)
     setTimeout(() => {
+        localStorage.setItem("currentScore","100");
         window.location.href = "about.html"
     }, 1000);
 }

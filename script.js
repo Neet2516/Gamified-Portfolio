@@ -106,6 +106,7 @@ let currentPhrase = [];
 let isDeleting = false;
 let isEnd = false;
 
+
 function loop() {
     isEnd = false;
     document.getElementById("typewriter").innerHTML = currentPhrase.join("");

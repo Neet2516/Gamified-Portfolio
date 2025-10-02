@@ -283,17 +283,46 @@ body {
     margin-top: 40px;
 }
 
-.skill-category {
+
+ .skill-category {
     background: #f8f9fa;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    perspective: 600px; /* for 3D tilt */
 }
 
 .skill-category:hover {
-    transform: translateY(-5px);
+    transform: perspective(600px) rotateY(8deg) rotateX(4deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
+
+/* Shine Sweep */
+.skill-category::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    transform: rotate(25deg) translateX(-100%);
+    transition: transform 0.8s ease;
+    pointer-events: none; /* avoids blocking clicks */
+}
+
+.skill-category:hover::before {
+    transform: rotate(25deg) translateX(100%);
+}
+
 
 .skill-category h3 {
     color: #2c3e50;
